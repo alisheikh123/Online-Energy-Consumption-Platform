@@ -1,0 +1,47 @@
+
+
+  <div class="container card card-outline card-primary">
+    <div class="card-header text-center">
+        <a [routerLink]="['/']" class="h1">Add Hours and Energy against User Device</a>
+    </div>
+    <div class="card-body">
+
+
+
+      <form class="row g-3 needs-validation" [formGroup]="hourEnergyForm" (ngSubmit)="onSave()" novalidate>
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">User Name</label>
+          <select (change)="selectUserId($event)"  class="form-control"  required>
+            <option   value="" selected disabled hidden>--Select User Name--</option>
+            <option  *ngFor="let i of users" value={{i.id}}>{{i.userName}}({{i.roleName}})</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+          <label  class="form-label">Device Name</label>
+          <select  class="form-control" (change)="selectDeviceId($event)" required>
+
+            <option   value="" selected disabled hidden>--Select Device--</option>
+            <option  *ngFor="let i of devices" value={{i.id}}>{{i.description}}(Maximum Consumption: {{i.maxHEC}} Kwh)</option>
+          </select>
+        </div>
+
+        <div class="col-md-4">
+          <label class="form-label">Hours</label>
+          <input class="form-control" type="number"
+          name="dp" formControlName="Hours">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Energy Consumption(Kwh)</label>
+          <input class="form-control" type="text"
+          name="dp" formControlName="EnergyConsumption" >
+        </div>
+      <br><br><br><br><br>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Submit form</button>
+        </div>
+      </form>
+
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>

@@ -1,0 +1,39 @@
+
+
+<div class="container card card-outline card-primary">
+  <div class="card-header text-center">
+      <a [routerLink]="['/']" class="h1">{{title}}</a>
+  </div>
+  <div class="card-body">
+
+
+
+      <form class="row g-3 needs-validation" [formGroup]="deviceForm" (ngSubmit)="saveDevices()" novalidate >
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">Description</label>
+          <input type="text" class="form-control" formControlName="description" id="validationCustom01" value="" required>
+
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Address</label>
+          <input type="text" class="form-control" formControlName="address" id="validationCustom02" value="" required>
+
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">MaxHEC</label>
+          <div class="input-group has-validation">
+            <input type="text" class="form-control" formControlName="maxHEC"  formconid="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+
+          </div>
+        </div>
+
+      <br><br><br><br><br>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">{{btnTitle}}</button>
+        </div>
+      </form>
+
+
+  </div>
+  <!-- /.login-card-body -->
+</div>

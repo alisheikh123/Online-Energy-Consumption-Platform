@@ -1,0 +1,42 @@
+<div class="card card-outline card-primary">
+    <div class="card-header text-center">
+        <a [routerLink]="['/']" class="h1">Online Energy UP</a>
+    </div>
+    <div class="card-body">
+      <div *ngIf="showError" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+    </div>
+
+        <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
+          <div class="mb-3 row">
+              <label for="username" class="col-form-label col-sm-4">Username:</label>
+              <div class="col-md-8">
+                  <input type="text" id="username" formControlName="username" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                  <em *ngIf="validateControl('username') && hasError('username', 'required')">Username is required</em>
+              </div>
+          </div>
+          <div class="mb-3 row">
+              <label for="password" class="col-form-label col-sm-4">Password:</label>
+              <div class="col-md-8">
+                  <input type="password" id="password" formControlName="password" class="form-control" />
+              </div>
+              <div class="col-md-5">
+                  <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+              </div>
+          </div>
+          <br>
+          <div class="mb-3 row">
+              <div class="col-md-1">
+                  <button type="submit" class="btn btn-info" [disabled]="!loginForm.valid">Login</button>
+              </div>
+          </div>
+      </form>
+
+
+
+
+    </div>
+    <!-- /.login-card-body -->
+</div>

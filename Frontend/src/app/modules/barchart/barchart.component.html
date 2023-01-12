@@ -1,0 +1,58 @@
+<div>
+<form [formGroup]="barchartForm" (ngSubmit)="onSubmit()" class="form-inline">
+  <div class="form-group">
+    <div class="row col-md-12">
+
+<div class="class col-4">
+  <div class="input-group">
+
+    <select
+    class="custom-select col-md-12 mb-3"
+    (change)="changeDevice($event)"
+    formControlName="deviceId"
+  >
+    <option value="">Select Device</option>
+    <option *ngFor="let i of userDevices" [value]="i?.id">
+      {{ i.description }}
+    </option>
+  </select>
+</div>
+</div>
+<div class="class col-3">
+  <div class="input-group">
+    <input class="form-control" type="date"
+           name="dp" formControlName="creationDate">
+
+  </div>
+</div>
+<div class="col-md-3">
+  <button class="btn btn-primary" > Generate</button>
+</div>
+
+
+
+
+      </div>
+
+
+
+    <!-- <div class="chart-container" style="height: 200px;">
+      <canvas  id="MyChart"  >{{ chart }}</canvas>
+    </div> -->
+
+    <div class="chart-container" style="height: 400px;width: 600px;">
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [type]="barChartType">
+        </canvas>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div>
+

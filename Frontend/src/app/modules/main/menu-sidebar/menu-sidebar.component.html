@@ -1,0 +1,100 @@
+<!-- Brand Logo -->
+<a [routerLink]="['/']" class="brand-link">
+    <pf-image
+        src="assets/img/logo.png"
+        alt="AdminLTE Logo"
+        class="brand-image"
+        height="33"
+        width="33"
+        rounded
+        style="opacity: 0.8"
+    ></pf-image>
+    <span class="brand-text font-weight-light">Online Energy UP</span>
+</a>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <!-- Sidebar user (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+            <pf-image
+                [src]="user.picture"
+                fallback-src="assets/img/default-profile.png"
+                class="img-circle"
+                alt="User Image"
+                width="34"
+                height="34"
+                rounded
+            ></pf-image>
+        </div>
+        <div class="info">
+            <a [routerLink]="['/']" class="d-block">
+                {{ userName }}
+            </a>
+        </div>
+    </div>
+
+
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2" style="overflow-y: hidden">
+        <ul
+            class="nav nav-pills nav-sidebar flex-column"
+            data-widget="treeview"
+            role="menu"
+            data-accordion="false"
+        >
+<a class="nav-link" *ngIf="isAdmin==='Client'">
+    <i class="nav-icon fa fa-home"></i>
+    <p  routerLink="/dashboard" routerLinkActive="active">
+        Graph
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+<a class="nav-link" *ngIf="isAdmin==='Admin'">
+    <i class="nav-icon fa fa-user"></i>
+    <p routerLink="/add-new-user/0" routerLinkActive="active" >
+        Add New User
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+<a class="nav-link" *ngIf="isAdmin==='Admin'">
+    <i class="nav-icon fa fa-microchip"></i>
+    <p routerLink="/add-new-device/0" routerLinkActive="active">
+        Add New Device
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+
+<a class="nav-link" *ngIf="isAdmin==='Admin'">
+    <i class="nav-icon fa fa-microchip"></i>
+    <p routerLink="/assign-role" routerLinkActive="active">
+      Assign Devices
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+<a class="nav-link" *ngIf="isAdmin==='Admin'">
+    <i class="nav-icon fas fa-charging-station"></i>
+    <p routerLink="/add-hours-energy" routerLinkActive="active">
+      Add Hours and Energy
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+<a class="nav-link" *ngIf="isAdmin==='Admin'">
+    <i class="nav-icon fa fa-user"></i>
+    <p routerLink="/view-user-list" routerLinkActive="active">
+      View Users
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+<a class="nav-link">
+    <i class="nav-icon fa fa-microchip"></i>
+    <p routerLink="/view-device-list" routerLinkActive="active">
+      View Devices
+        <i class="right fas fa-angle-right"></i>
+    </p>
+</a>
+
+        </ul>
+    </nav>
+</div>

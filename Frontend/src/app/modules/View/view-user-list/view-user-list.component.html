@@ -1,0 +1,38 @@
+<div class="container card card-outline card-primary">
+  <div class="card-header text-center">
+      <a [routerLink]="['/']" class="h1">User Listing</a>
+  </div>
+  <button class="btn btn-primary col-md-1"  (click)="getUsers()">Get Users</button>
+  <div class="card-body">
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>LastName</th>
+      <th>User Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th *ngIf="isAdmin===true">Action</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of users">
+        <td>{{item.id}}</td>
+        <td>{{item.firstName}}</td>
+        <td>{{item.lastName}}</td>
+        <td>{{item.userName}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.roleName}}</td>
+        <td *ngIf="isAdmin===true">
+            <a class="btn btn-primary btn-sm" (click)="onEdit(item.id)">Edit</a>|
+            <a class="btn btn-danger btn-sm" (click)="onDeleted(item.id)">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<!-- /.login-card-body -->
+</div>
+

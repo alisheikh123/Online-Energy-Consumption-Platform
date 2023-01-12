@@ -1,0 +1,62 @@
+<div class="card card-outline card-primary">
+    <div class="card-header text-center">
+        <a routerLink="['/']" class="h1">Online Energy UP</a>
+    </div>
+    <div class="card-body">
+
+        <p class="login-box-msg">Register a new membership</p>
+        <div *ngIf="showError" class="alert alert-danger" role="alert">
+            <span [innerHTML]="errorMessage"></span>
+        </div>
+        <form formGroup="registerForm" (ngSubmit)="registerByAuth()">
+            <div class="input-group mb-3">
+
+                <input formControlName="firstName" type="text" class="form-control" placeholder="First Name"/>
+
+            </div>
+            <div class="input-group mb-3">
+                <input formControlName="lastName" type="text" class="form-control" placeholder="Last Name"/>
+
+            </div>
+            <div class="input-group mb-3">
+                <input formControlName="username" type="text" class="form-control" placeholder="User Name"/>
+
+            </div>
+            <div class="input-group mb-3">
+                <input formControlName="email" type="email" class="form-control" placeholder="Email"/>
+                <div>
+                    <em *ngIf="validateControl('email') && hasError('email', 'email')">Please provide a valid email</em>
+                    <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
+                </div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input formControlName="password" type="password" class="form-control" placeholder="Password"/>
+                <div>
+                    <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm password"/>
+                <div>
+                    <em *ngIf="validateControl('confirmPassword') && hasError('confirmPassword', 'required')">Confirmation is required</em>
+                    <em *ngIf="hasError('confirmPassword', 'mustMatch')">Passwords must match</em>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-7">
+                    <a type="button" class="btn btn-primary" routerLink="['/login']">Login</a>
+
+                </div>
+                <!-- /.col -->
+                <div class="col-5">
+
+                    <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+
+
+    </div>
+</div>

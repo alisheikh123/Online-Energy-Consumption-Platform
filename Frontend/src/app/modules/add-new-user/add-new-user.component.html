@@ -1,0 +1,69 @@
+
+
+  <div class="container card card-outline card-primary">
+    <div class="card-header text-center">
+        <a [routerLink]="['/']" class="h1">{{title}}</a>
+    </div>
+    <div class="card-body">
+
+
+
+      <form class="row g-3 needs-validation" [formGroup]="userRegisterForm" (ngSubmit)="registerUser()" novalidate>
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="firstName"  value="Ali" >
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">Last Name</label>
+          <input type="text" class="form-control"  formControlName="lastName" value="Raza" >
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom01" class="form-label">User Name</label>
+          <input type="text" class="form-control" formControlName="userName"  value="Aloi@" >
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom02" class="form-label">Email</label>
+          <input type="email" class="form-control"  formControlName="email"  value="Alisheikh@123" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustomUsername" class="form-label">Password</label>
+          <div class="input-group has-validation">
+            <input type="password" class="form-control" formControlName="password" value="Alisheikh@123" aria-describedby="inputGroupPrepend" required>
+            <div class="invalid-feedback">
+              Please choose a username.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <label for="validationCustom03" class="form-label">Role</label>
+          <select  class="form-control"(change)="changeRole($event)" id="validationCustom03" required>
+          <option value="default" selected hidden disabled>--Select Role--</option>
+          <option *ngFor="let i of role" [ngValue]="i.value">
+              {{i.text}}
+          </option>
+        </select>
+        </div>
+      <br><br><br><br><br>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit" [disabled]="userRegisterForm.invalid">{{btnTitle}}</button>
+        </div>
+      </form>
+
+
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+
+
